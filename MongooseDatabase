@@ -1,0 +1,64 @@
+#STORE DATA
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
+
+const BIM_Schema = new Schema({
+    name: {
+        type: String,
+        trim: true
+    }
+});
+const BIM_IFC= mongoose.model("BIM_IFC", BIM_Schema);
+module.exports = { BIM_IFC };
+
+#ADDING NEW FILE #
+{
+module.exports = async (_, {input}, {models}) => {
+    BIM_IFC = await models.BIM_IFC.create(input);
+    return BIM_IFC;
+}
+
+#CONNECTING TO MANGODB
+require('dotenv').config();
+
+const mongoose = require('mongoose');
+
+const DATABASE_URL = process.env.DATABASE_URL;
+
+const connectDB = () => {
+    return mongoose.connect(DATABASE_URL, {useUnifiedTopology: true, useNewUrlParser: true}, err => {
+        if (err){
+            console.error('Connection to DB failed');
+        } else{
+            console.log('Connection to DB was successful');
+        }
+    })
+}
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, "MongoDB connection failed"));
+
+module.exports = connectDB;
+
+#CREATING APOLLO SERVER 
+
+const {ApolloServer} = require('apollo-server');
+const connectDB = require('./config/db');
+const typeDefs = require('./types');
+const resolvers = require('./resolvers');
+const models = require('./models');
+
+#CREATING AND RUNNING SERVER OBJECT
+
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: {models}
+});
+
+// port: process.env.PORT yet undefined but we will have this variable
+// once we deployed to heroku
+server.listen({port: process.env.PORT || 4000}).then(({url}) => {
+    console.log(`Server is ready at ${url}`);
+})
