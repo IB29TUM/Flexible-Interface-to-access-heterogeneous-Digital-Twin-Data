@@ -1,4 +1,5 @@
-const {ApolloServer,gql} = require("apollo-server");
+const {gql} = require("apollo-server");
+
 exports.typeDefs= gql`
 type Query {
     services:[Service!]!
