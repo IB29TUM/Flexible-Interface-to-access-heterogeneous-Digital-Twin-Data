@@ -1,12 +1,18 @@
 const {ApolloServer} = require("apollo-server");
-const { typeDefs }=require("./schema");
-const {resolvers} = require("./resolvers.js");
-const {uuid} =require("uuid");
-const { services,categories,structural_elements,beams, columns,openings} = require("./db");
+const {typeDefs }=require("./schema");
+const {Query} = require("./Resolvers/Query")
+const {Mutation} = require("./Resolvers/Mutation")
+const {Category} = require("./Resolvers/Category")
+const {Structural_elements} = require("./Resolvers/Structural_elements")
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers,
+    resolvers : {
+        Query,
+        Mutation,
+        Category,
+        Structural_elements
+    },
 });
 
 server.listen().then(({ url})=> {

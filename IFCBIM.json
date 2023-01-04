@@ -1,0 +1,32 @@
+{
+    "IFCBuilding": {
+        "title": "Building",
+		"GlossDiv": {
+            "title": "BuildingElements",
+			"Openings": {
+                "Windows": {
+                    "ID": "IfcOpeningElement_Windows_Sgl_Plain:1810x1210mm",
+					"Numbers": "5",
+					"Material": "Glass",
+					"Dimension": "1810x1210mm",
+					"Level": "0",
+                        
+                            },
+			"Doors": {
+				"ID": "IfcOpeningElement_Doors_ExtDbl_Flush",
+				"Numbers": "1",
+					"Material": "wood",
+					"Dimension": "2110x1210mm",
+					"Level": "0",
+                            },
+                  
+                               },
+			"walls": {
+				"ID": "IfcWallStandardCase_BasicWall",
+				"Numbers": "4",
+				"type": "Exterior",
+                        "dimension":"102Bwk-75Ins",
+			
+        }
+    }
+}
