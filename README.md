@@ -18,4 +18,14 @@ Other dependencies :
     
     prisma: 4.4.0
     
-    uuid: 9.0.0 
+    uuid: 9.0.0
+    
+ ##########################################
+ 
+ Python packages requirements : 
+ 
+ 1. pip install json
+ 2. pip install ifcopenshell
+ https://github.com/IfcOpenShell/IfcOpenShell
+ 
+ 3. pip install pandas
