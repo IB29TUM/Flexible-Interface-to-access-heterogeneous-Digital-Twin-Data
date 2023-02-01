@@ -1,7 +1,7 @@
 # welcome to Flexible Interface to access heterogeneous Digital Twin Data
 
 ############Installation Guide#############
-For server :-
+/nFor server :-
 
 1. Install npm 
 https://docs.npmjs.com/cli/v8/commands/npm-install
