@@ -29,6 +29,8 @@ Other dependencies :
  https://github.com/IfcOpenShell/IfcOpenShell
  
  3. pip install pandas
+
+
  Alternatively just run the requirement.txt from your terminal 
 OR
 
