@@ -30,8 +30,12 @@ Other dependencies :
  
  3. pip install pandas
 
-
  Alternatively just run the requirement.txt from your terminal 
 OR
 
 ´´´echo "json\nifcopenshell\npandas" > requirements.txt´´´
+
+# Steps to run the code 
+
+1. upload your IFC/CSV data in the cloned directory.
+2.
