@@ -1,3 +1,9 @@
+// """
+//File name: index.js
+// Description: Connection to the appoloserver and the playground
+// """
+
+
 const {ApolloServer} = require("apollo-server");
 const {typeDefs }=require("./schema");
 const {Query} = require("./Resolvers/Query")
@@ -14,6 +20,8 @@ const server = new ApolloServer({
         Structural_elements
     },
 });
+ 
+// Visualisation and listing to our server is done below 
 
 server.listen().then(({ url})=> {
     console.log("Server is ready at " + url)

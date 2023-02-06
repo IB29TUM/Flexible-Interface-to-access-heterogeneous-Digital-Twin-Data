@@ -1,3 +1,9 @@
+// """"
+// File name: db.js
+// Description: Mutations or appending ,changing or deleting script
+//"""""
+
+
 const {categories} = require("../db");
 const{v4: uuid}=require("uuid")
 

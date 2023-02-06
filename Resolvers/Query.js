@@ -1,3 +1,9 @@
+// """"
+// File name: Query.js
+// Description:script that provide user the option to query and search in the graphQl playground
+//"""""
+
+
 const {services,categories,structural_elements,beams, columns,openings} = require("../db");
 
 exports.Query= {
