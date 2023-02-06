@@ -5,7 +5,7 @@
 
 
 const {services,categories,structural_elements,beams, columns,openings} = require("../db");
-
+const {IFCservices,HVACservices} = require("../db1");
 exports.Query= {
         
     services:()=>services,
@@ -28,7 +28,8 @@ exports.Query= {
         },
             beams:()=>beams,
             columns:()=>columns,
-    
+            IFCservices:()=>IFCservices,
+            HVACservices:()=>HVACservices,
             openings:()=>openings,
         //     openings:(parent,args,context) => {
         //         const {id}=args;

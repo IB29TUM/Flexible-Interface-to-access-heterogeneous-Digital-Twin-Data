@@ -12,6 +12,10 @@ type Query {
     columns:[Columns!]!
     openings:[Openings!]!
     opening(id: ID!):Openings
+    IFCservice(id:ID!):IFC_Services
+    IFCservices:[IFC_Services!]!
+    HVACservice(id:ID!):IFC_HVACS
+    HVACservices:[IFC_HVACS!]!
 }
 type Mutation {
     addCategory(input: AddCategoryInput!): Category!
@@ -41,6 +45,24 @@ type Openings{
   name:String!
   services:[Service!]!
 }
+type IFC_Services{
+  id: ID!
+  type: String!
+  elevation: String!
+  opening_type: String!
+  object_placement: String!
+}
+
+type IFC_HVACS{
+  id: ID!
+  Date: String!
+  Temperature: String!
+  Humidity: String!
+  CO2: String!
+  HumidityRatio: String!
+  Light: String!
+}
+
 type Beams{
   id:ID!
   name: String!

@@ -25172,3 +25172,7 @@ Light: '798.0'
 },
 
  ];
+ module.exports={
+    IFCservices,
+    HVACservices,
+  }
