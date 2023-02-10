@@ -39,3 +39,10 @@ OR
 
 1. upload your IFC/CSV data in the cloned directory.
 2.
+3.
+4.
+5. To run the front end open terminal on the cloned branch and 
+launch the sever 'python -m http.server'
+
+your play ground should be ready on 
+'http://localhost:8000/front.html'
