@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Query Interface for Heterogeneous Digital Twins</title>
+    <style>
+      /* Add some styling to the page */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: deepblue;
+        animation: backgroundAnimation 5s linear infinite;
+      }
+      @keyframes backgroundAnimation {
+        0% {
+          background-color: deepblue;
+        }
+        50% {
+          background-color: rgb(6, 37, 48);
+        }
+        100% {
+          background-color: deepblue;
+        }
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: white;
+      }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    width: 500px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  #result {
+    width: 500px;
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    background-color: rgb(239, 189, 189);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  select {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .service {
+    width: 300px;
+    height: 400px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .service img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1024px-GraphQL_Logo.svg.png" alt="GraphQL Logo">
+
+<style>
+  /* Add some styling to the logo */
+  .logo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+</style>
+</head>
+<body>
+    <h1>Query Interface for Heterogeneous Digital Twins</h1>
+    <form>
+      <textarea id="query-input" rows="10" cols="50"></textarea><br><br>
+      <button id="submit-button">Submit Query</button>
+      <button id="download-button">Download Result</button>
+    </form>
+    <h2>Result:</h2>
+    <pre id="result"></pre>
+    <script>
+      const submitButton = document.getElementById("submit-button");
+      const queryInput = document.getElementById("query-input");
+      const result = document.getElementById("result");
+      const downloadButton = document.getElementById("download-button");
+      submitButton.addEventListener("click", async (event) => {
+  event.preventDefault();
+  const query = queryInput.value;
+  const response = await fetch("http://localhost:4000/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query })
+  });
+  const json = await response.json();
+  result.textContent = JSON.stringify(json, null, 2);
+});
+downloadButton.addEventListener("click", (event) => {
+  const resultText = result.textContent;
+
+  // format the result text as CSV
+  const csv = resultText
+    .split("\n")
+    .map((line) => line.split(",").join("\t"))
+    .join("\n");
+
+  // create a Blob object with the CSV content
+  const blob = new Blob([csv], { type: "text/csv" });
+
+  // trigger the download
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "result.csv";
+  link.click();
+});
+</script>
+  
+
+
+ 

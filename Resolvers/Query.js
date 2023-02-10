@@ -8,13 +8,17 @@ const {services,categories,structural_elements,beams, columns,openings} = requir
 const {IFCservices,HVACservices} = require("../db1");
 exports.Query= {
         
-    services:()=>services,
-            service:(parent,args,context) => {
-                const serviceid=args.id;
-                const service=services.find(service => service.id ===serviceid)
+            services:()=>services,
+
+            service: (parent, args, context) => {
+                const serviceId = args.id;
+                const service = services.find(service => service.id === serviceId);
                 if (!service) return null;
-                return service;
+                // Find related categories for the service
+                const serviceCategories = categories.filter(category => category.services.find(s => s.id === serviceId));
+                return { ...service, categories: serviceCategories };
             },
+            services:()=>categories,
             categories:()=>categories,
             category:(parent,args,context) => {
                 const {id}=args;
@@ -26,7 +30,8 @@ exports.Query= {
                 return structural_elements.find(structural_element => structural_element.id ===id)
             
         },
-            beams:()=>beams,
+            beams: () => beams,
+    
             columns:()=>columns,
             IFCservices:()=>IFCservices,
             HVACservices:()=>HVACservices,
@@ -36,4 +41,4 @@ exports.Query= {
         //         return openings.find(opening => opening.id ===id)
             
         // },
-}
+};
