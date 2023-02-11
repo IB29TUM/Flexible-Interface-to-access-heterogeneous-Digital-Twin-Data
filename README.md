@@ -52,4 +52,4 @@ You can query both at the apollo playground 'http://localhost:4000/'
 or  the interface  at 
 'http://localhost:8000/front.html'
 
-Enjoy the playinf with the elements !!!
+Enjoy  playing with the elements !!!
