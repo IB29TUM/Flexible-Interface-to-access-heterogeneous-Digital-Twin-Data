@@ -40,9 +40,9 @@ OR
 1. Upload your IFC/CSV data in the cloned directory.
 2. Run IFCJson.py that will convert out IFC file into a js object.(Dont forget the module exports after the file)
 3. Also do the same if you have a csv file now run csvobjectmaker.py
-4.Now once you have succesfully generated and polulated the database in the terminal write  'npm run dev'
-6. If every step avove is correct you should get your server running and it  look like this 'Server is ready at http://localhost:4000/'
-5. To run the interface open terminal on the cloned branch and 
+4. Now once you have succesfully generated and polulated the database in the terminal write  'npm run dev'
+5. If every step avove is correct you should get your server running and it  look like this 'Server is ready at http://localhost:4000/'
+6. To run the interface open terminal on the cloned branch and 
 launch the sever 'python -m http.server'
 
 **Note**
