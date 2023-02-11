@@ -5,7 +5,7 @@
 
 import pandas as pd
 
-data=pd.read_csv("hvac.csv")                   # upload your your havac data in csv format and paste the directory here 
+data=pd.read_csv("hvac.csv")                   # upload your hvac data in csv format and paste the directory here 
 data.insert(0, 'ID', range(100, 100 + len(data)))
 filename = "db1.js"
 with open(filename, 'a') as file:
