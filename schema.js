@@ -29,6 +29,7 @@ type Service {
     dimension:String!
     quantity: Int!
     image: String!
+    categories: [Category!]!
 }
 type Category{
     id:ID!
