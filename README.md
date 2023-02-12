@@ -41,11 +41,14 @@ Follow step 1 and 2 only if you want to use your own files  :
 
 1. Upload your IFC/CSV data in the cloned directory.
 2. Run IFCJson.py that will convert out IFC file into a js object.(Dont forget the module exports after the db1 file generated
-You have to write   module.exports={
+You have to write  
+
+module.exports={
     services,
     categories, OR
    .....any thing that one made from IFC name of the attribute
   })
+  
 3. Also do the same if you have a csv file now run csvobjectmaker.py
 
 You can come to step 4 directly if you are here to test our code :
