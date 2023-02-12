@@ -5,6 +5,7 @@
 
 
 const {categories} = require("../db");
+const {services} = require("../db");
 const{v4: uuid}=require("uuid")
 
 exports.Mutation = {
@@ -38,8 +39,8 @@ exports.Mutation = {
           image,
           categoryId,
         };
-    
-        db.services.push(newService);
+        // services.push(newService);
+        services.push(newService);
         return newService;
       },
     updateCategory: (parent, { id, input }, context) => {

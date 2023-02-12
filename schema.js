@@ -29,7 +29,6 @@ type Service {
     dimension:String!
     quantity: Int!
     image: String!
-    categories: [Category!]!
 }
 type Category{
     id:ID!
@@ -72,6 +71,7 @@ type Beams{
   image: String!
   categoryId:String!
   structuralId:String!
+  relatedStructuralElements:[Structural_elements]
 }
 
 type Columns{
@@ -82,6 +82,7 @@ type Columns{
   image: String!
   categoryId:String!
   structuralId:String!
+  relatedStructuralElements:[Structural_elements]
 }
 
 input AddCategoryInput {

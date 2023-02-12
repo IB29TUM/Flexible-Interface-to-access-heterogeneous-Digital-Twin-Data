@@ -1182,8 +1182,7 @@ elevation: 'nan',
 opening_type: 'IfcOpeningElement',
 object_placement: '[1400.0, 49.5000000000023, 200.0]'
 },
-
- ];
+];
 const HVACservices=[
 {
 id: '100',
@@ -25173,6 +25172,6 @@ Light: '798.0'
 
  ];
  module.exports={
-    IFCservices,
-    HVACservices,
-  }
+  IFCservices,
+  HVACservices,
+}

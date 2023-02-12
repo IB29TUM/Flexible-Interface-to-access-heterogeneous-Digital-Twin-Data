@@ -11,14 +11,11 @@ exports.Query= {
             services:()=>services,
 
             service: (parent, args, context) => {
-                const serviceId = args.id;
-                const service = services.find(service => service.id === serviceId);
-                if (!service) return null;
-                // Find related categories for the service
-                const serviceCategories = categories.filter(category => category.services.find(s => s.id === serviceId));
-                return { ...service, categories: serviceCategories };
+                const serviceid=args.id;
+            const service=services.find(service => service.id ===serviceid)
+            if (!service) return null;
+            return service;
             },
-            services:()=>categories,
             categories:()=>categories,
             category:(parent,args,context) => {
                 const {id}=args;
@@ -30,15 +27,21 @@ exports.Query= {
                 return structural_elements.find(structural_element => structural_element.id ===id)
             
         },
-            beams: () => beams,
+            beams: () =>  beams.map(beam => {
+                return {
+                  ...beam,
+                  relatedStructuralElements: structural_elements.filter(se => se.id === beam.structuralId)
+                };
+            }),
     
-            columns:()=>columns,
+            columns: () => columns.map(column => {
+                return {
+                  ...column,
+                  relatedStructuralElements: structural_elements.filter(se => se.id === column.structuralId)
+                };
+              }),
+          
             IFCservices:()=>IFCservices,
             HVACservices:()=>HVACservices,
             openings:()=>openings,
-        //     openings:(parent,args,context) => {
-        //         const {id}=args;
-        //         return openings.find(opening => opening.id ===id)
-            
-        // },
 };
