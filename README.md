@@ -37,11 +37,24 @@ OR
 
 # Steps to run the code 
 
+Follow step 1 and 2 only if you want to use your own files  : 
+
 1. Upload your IFC/CSV data in the cloned directory.
-2. Run IFCJson.py that will convert out IFC file into a js object.(Dont forget the module exports after the file)
+2. Run IFCJson.py that will convert out IFC file into a js object.(Dont forget the module exports after the db1 file generated
+You have to write  
+
+module.exports={
+    services,
+    categories, OR
+   .....any thing that one made from IFC name of the attribute
+  })
+  
 3. Also do the same if you have a csv file now run csvobjectmaker.py
+
+You can come to step 4 directly if you are here to test our code :
+
 4. Now once you have succesfully generated and polulated the database in the terminal write  'npm run dev'
-5. If every step avove is correct you should get your server running and it  look like this 'Server is ready at http://localhost:4000/'
+5. If every step avove is correct you should get your server is running and it  look like this 'Server is ready at http://localhost:4000/'
 6. To run the interface open terminal on the cloned branch and 
 launch the sever 'python -m http.server'
 
@@ -52,4 +65,4 @@ You can query both at the apollo playground 'http://localhost:4000/'
 or  the interface  at 
 'http://localhost:8000/front.html'
 
-Enjoy  playing with the elements !!!
+Enjoy  playing with Graphql !!!
